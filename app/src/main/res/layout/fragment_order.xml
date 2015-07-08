@@ -1,0 +1,139 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="250dp"
+        android:id="@+id/order_image"
+        android:src="@drawable/door3"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:id="@+id/order_date"
+        android:textColor="@color/orange"
+        android:textSize="20dp"
+        android:layout_alignTop="@+id/order_image"
+        android:layout_toRightOf="@+id/order_image"
+        android:layout_toEndOf="@+id/order_image"
+        android:layout_marginLeft="60dp"
+        android:layout_marginStart="60dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="20dp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/order_name"
+        android:layout_below="@+id/order_date"
+        android:layout_alignLeft="@+id/order_date"
+        android:layout_alignStart="@+id/order_date" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Customer Name"
+        android:textSize="20dp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/order_customer_name"
+        android:layout_below="@+id/order_name"
+        android:layout_alignLeft="@+id/order_name"
+        android:layout_alignStart="@+id/order_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Customer Phone"
+        android:textSize="20dp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/order_customer_phone"
+        android:layout_below="@+id/order_customer_name"
+        android:layout_alignLeft="@+id/order_name"
+        android:layout_alignStart="@+id/order_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Customer Phone"
+        android:textSize="20dp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/order_count"
+        android:layout_below="@+id/order_customer_phone"
+        android:layout_alignLeft="@+id/order_name"
+        android:layout_alignStart="@+id/order_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status"
+        android:textSize="20dp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/order_status"
+        android:layout_below="@+id/order_count"
+        android:layout_alignLeft="@+id/order_name"
+        android:layout_alignStart="@+id/order_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Height"
+        android:textSize="20dp"
+        android:layout_marginLeft="16dp"
+        android:id="@+id/order_height"
+        android:layout_below="@+id/order_image"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Width"
+        android:textSize="20dp"
+        android:visibility="gone"
+        android:id="@+id/order_width"
+        android:layout_alignTop="@+id/order_height"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fat"
+        android:id="@+id/order_fat"
+        android:textSize="20dp"
+        android:visibility="gone"
+        android:layout_alignTop="@+id/order_width"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Удалить"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/selector_orange_btn"
+        android:id="@+id/delete_order_btn"
+        android:layout_below="@+id/order_height"
+        android:layout_toRightOf="@+id/order_width"
+        android:layout_toEndOf="@+id/order_width" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Подтвердить"
+        android:background="@drawable/selector_orange_btn"
+        android:id="@+id/accept_order_btn"
+        android:layout_alignTop="@+id/delete_order_btn"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>

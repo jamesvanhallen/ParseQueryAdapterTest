@@ -1,0 +1,9 @@
+<resources>
+    <item name="orange" type="color">#ff6c01</item>
+    <item name="black" type="color">#1a1a1a</item>
+    <item name="white" type="color">#FAFAFA</item>
+    <item name="pressed_orange" type="color">#B3FF4418</item>
+    <item name="gray" type="color">#8d8b8c</item>
+    <item name="green" type="color">#f896dd3d</item>
+    <item name="gray_dark" type="color">#444444</item>
+</resources>
