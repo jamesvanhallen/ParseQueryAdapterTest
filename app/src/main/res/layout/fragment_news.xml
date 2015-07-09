@@ -6,7 +6,7 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@color/orange"
+        android:divider="@color/blue"
         android:dividerHeight="1dp"
         android:id="@+id/news_lv">
 
@@ -19,8 +19,8 @@
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
         android:src="@drawable/plus_24dp"
-        fab:fab_colorNormal="@color/orange"
-        fab:fab_colorPressed="@color/pressed_orange"
-        fab:fab_colorRipple="@color/pressed_orange" />
+        fab:fab_colorNormal="@color/pink"
+        fab:fab_colorPressed="@color/pink_dark"
+        fab:fab_colorRipple="@color/pink_dark" />
 
 </FrameLayout>

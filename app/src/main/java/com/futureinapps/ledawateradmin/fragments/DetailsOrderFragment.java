@@ -3,6 +3,7 @@ package com.futureinapps.ledawateradmin.fragments;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,10 +47,6 @@ public class DetailsOrderFragment extends BaseFragment {
     TextView mStatus;
     @Bind(R.id.order_height)
     TextView mHeight;
-//    @Bind(R.id.order_width)
-//    TextView mWidth;
-//    @Bind(R.id.order_fat)
-//    TextView mFat;
     @Bind(R.id.order_count)
     TextView mCount;
     @Bind(R.id.accept_order_btn)
@@ -73,12 +70,12 @@ public class DetailsOrderFragment extends BaseFragment {
             mDate.setText(dateParser.format(order.getCreatedAt()));
             mName.setText(order.getName());
             if(order.getStatus().equals("ПОДТВЕРЖДЕН")){
-                mStatus.setTextColor(getResources().getColor(R.color.orange));
+                mStatus.setTextColor(getResources().getColor(R.color.blue));
                 mAcceptBtn.setVisibility(View.GONE);
             }
             mStatus.setText(order.getStatus());
             mCount.setText("Количество: " + order.getCount());
-            MainActivity.imageSelector(order, mImage, getActivity());
+            //MainActivity.imageSelector(order, mImage, getActivity());
             mHeight.setText("Параметры(см) ВхШхГ: " + order.getParams());
             ParseQuery<ParseUser> query = ParseUser.getQuery();
             query.whereEqualTo("objectId", order.getCustomerId());
@@ -119,8 +116,6 @@ public class DetailsOrderFragment extends BaseFragment {
     }
 
     private void returnFromFragment() {
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container2, new OrdersFragment())
-                .commit();
+        MainActivity.changeFragment(new OrdersFragment(), true, (AppCompatActivity) getActivity());
     }
 }

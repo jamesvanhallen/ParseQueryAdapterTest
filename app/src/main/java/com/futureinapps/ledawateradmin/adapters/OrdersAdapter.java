@@ -59,11 +59,11 @@ public class OrdersAdapter extends ParseQueryAdapter<Order> {
 
         status.setTextColor(Color.BLACK);
         if(order.getString("Status").equals("Подтвержден")){
-            status.setTextColor(context.getResources().getColor(R.color.orange));
+            status.setTextColor(context.getResources().getColor(R.color.blue));
         }
 
         ImageView orderIcon = (ImageView) v.findViewById(R.id.order_image);
-        MainActivity.imageSelector(order, orderIcon, context);
+       // MainActivity.imageSelector(order, orderIcon, context);
 
 
         return v;

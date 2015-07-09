@@ -3,7 +3,6 @@ package com.futureinapps.ledawateradmin;
 import android.app.Application;
 import android.util.Log;
 
-import com.futureinapps.ledawateradmin.pojos.Gager;
 import com.futureinapps.ledawateradmin.pojos.News;
 import com.futureinapps.ledawateradmin.pojos.Order;
 import com.parse.Parse;
@@ -26,7 +25,6 @@ public class ParseApp extends Application {
 
         ParseObject.registerSubclass(Order.class);
         ParseObject.registerSubclass(News.class);
-        ParseObject.registerSubclass(Gager.class);
 
         Parse.initialize(this, getString(R.string.MyParseId), getString(R.string.MyParsePass));
 

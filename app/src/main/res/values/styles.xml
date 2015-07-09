@@ -4,13 +4,13 @@
         <!-- Customize your theme here. -->
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
-        <item name="colorPrimary">@color/gray</item>
-        <item name="colorPrimaryDark">@color/orange</item>
-        <item name="colorAccent">@color/orange</item>
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryDark">@color/blue_dark</item>
+        <item name="colorAccent">@color/blue</item>
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:windowBackground">@color/white</item>
         <item name="android:textColorHint">@color/gray</item>
-        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:textColor">@color/black</item>
 
     </style>
 

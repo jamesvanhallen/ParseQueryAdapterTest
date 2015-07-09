@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -31,7 +33,14 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         toolbar.setTitle("Администратор");
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-
+        Fragment oldFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container2);
+        if (oldFragment != null) {
+            ft.remove(oldFragment);
+        }
+        Fragment oldFragment2 = getSupportFragmentManager().findFragmentById(R.id.fragment_container1);
+        if (oldFragment2 != null) {
+            ft.remove(oldFragment2);
+        }
                 if(isNetworkConnected()){
                     fragmentsInit(ft);
                 } else {
@@ -53,30 +62,24 @@ public class MainActivity extends AppCompatActivity {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    public static void imageSelector(Order order, ImageView orderIcon, Context context) {
-        switch (order.getString("Image")){
-            case "0":{
-                orderIcon.setImageDrawable(context.getResources().getDrawable(R.drawable.door2));
-                break;
-            }
-            case "1":{
-                orderIcon.setImageDrawable(context.getResources().getDrawable(R.drawable.door3));
-                break;
-            }
-            case "2":{
-                orderIcon.setImageDrawable(context.getResources().getDrawable(R.drawable.door4));
-                break;
-            }
-            case "3":{
-                orderIcon.setImageDrawable(context.getResources().getDrawable(R.drawable.door5));
-                break;
-            }
-            case "4":{
-                orderIcon.setImageDrawable(context.getResources().getDrawable(R.drawable.door6));
-                break;
-            }
+    public static void changeFragment(Fragment f, boolean addToBackStack, AppCompatActivity activity) {
+        FragmentManager mFm = activity.getSupportFragmentManager();
+        FragmentTransaction ft = mFm.beginTransaction();
 
+        // Backstack
+        if (addToBackStack) {
+            ft.addToBackStack(null);
         }
+
+        // Adding fragment
+        Fragment oldFragment = mFm.findFragmentById(R.id.fragment_container2);
+        if (oldFragment != null) {
+            ft.remove(oldFragment);
+        }
+        ft.add(R.id.fragment_container2, f);
+
+        // Commit transaction
+        ft.commit();
     }
 
 

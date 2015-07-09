@@ -23,7 +23,6 @@ public class NoInternetFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.no_internet_fragment, container, false);
         ButterKnife.bind(this, v);
-//        getActivity().getActionBar().hide();
         return  v;
     }
 

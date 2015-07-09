@@ -4,6 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.parse.ParseClassName;
+import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseObject;
 
 /**
@@ -15,6 +17,7 @@ public class News extends ParseObject implements Parcelable {
 
     private String title;
     private String text;
+    private ParseFile pFile;
 
     public News(){
 
@@ -23,7 +26,9 @@ public class News extends ParseObject implements Parcelable {
     public News(Parcel in){
         title = in.readString();
         text = in.readString();
-
+        byte [] imageBytesArray = new byte[in.readInt()];
+        in.readByteArray(imageBytesArray);
+        pFile = new ParseFile(imageBytesArray);
     }
 
     public void setTitle(String s){
@@ -42,6 +47,14 @@ public class News extends ParseObject implements Parcelable {
         return getString("Title");
     }
 
+    public void setImage (ParseFile pFile){
+        put("Image", pFile);
+    }
+
+    public ParseFile getImage(){
+        return getParseFile("Image");
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -51,5 +64,13 @@ public class News extends ParseObject implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(title);
         dest.writeString(text);
+        try {
+            byte[] b = pFile.getData();
+            dest.writeInt(b.length);
+            dest.writeByteArray(b);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
     }
 }

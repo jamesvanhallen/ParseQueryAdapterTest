@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <!--
       IMPORTANT: Change "com.parse.tutorials.pushnotifications.permission.C2D_MESSAGE" in the lines below
@@ -16,13 +17,13 @@
     -->
     <permission android:protectionLevel="signature"
         android:name="com.futureinapps.ledawateradmin.permission.C2D_MESSAGE" />
-    <uses-permission android:name="com.futureinapps.doorssalleradmin.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.futureinapps.ledawateradmin.permission.C2D_MESSAGE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name="com.futureinapps.ledawateradmin.ParseApp"
+        android:name=".ParseApp"
 
         android:theme="@style/AppTheme" >
 
@@ -57,7 +58,7 @@
                 <!--
                   IMPORTANT: Change "com.parse.tutorials.pushnotifications" to match your app's package name.
                 -->
-                <category android:name="com.futureinapps.doorssalleradmin" />
+                <category android:name="com.futureinapps.ledawateradmin" />
             </intent-filter>
         </receiver>
         <receiver android:name="com.parse.ParsePushBroadcastReceiver" android:exported="false">

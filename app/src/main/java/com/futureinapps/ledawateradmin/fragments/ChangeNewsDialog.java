@@ -1,16 +1,17 @@
 package com.futureinapps.ledawateradmin.fragments;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
 import com.futureinapps.ledawateradmin.R;
+import com.futureinapps.ledawateradmin.activities.MainActivity;
 import com.futureinapps.ledawateradmin.pojos.News;
 
 import butterknife.ButterKnife;
@@ -35,8 +36,8 @@ public class ChangeNewsDialog extends DialogFragment {
     @OnClick(R.id.delete_news_btn)
     void onDeleteBtnClick(){
         ((News)getArguments().getParcelable("news")).deleteInBackground();
-        Intent intent = getActivity().getIntent();
-        getTargetFragment().onActivityResult(getTargetRequestCode(), Activity.RESULT_OK, intent);
+        getTargetFragment().onActivityResult(getTargetRequestCode(), Activity.RESULT_OK,
+                getActivity().getIntent());
         dismiss();
     }
 
@@ -44,11 +45,9 @@ public class ChangeNewsDialog extends DialogFragment {
     void onChangeBtnClick(){
         NewsCreatingFragment frag = new NewsCreatingFragment();
         Bundle b = new Bundle();
-        b.putParcelable("news", (News)getArguments().getParcelable("news"));
+        b.putParcelable("news", getArguments().getParcelable("news"));
         frag.setArguments(b);
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container2, frag)
-                .commit();
+        MainActivity.changeFragment(frag, true, (AppCompatActivity)getActivity());
         dismiss();
     }
 }

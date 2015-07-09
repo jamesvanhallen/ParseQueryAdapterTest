@@ -8,7 +8,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15dp"
-
         android:text="Проверьте интернет соединение"
         android:id="@+id/textView4" />
 
@@ -16,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@drawable/selector_orange_btn"
+        android:background="@drawable/selector_blue_btn"
         android:text="Повторить"
         android:padding="5dp"
         android:id="@+id/network_btn" />

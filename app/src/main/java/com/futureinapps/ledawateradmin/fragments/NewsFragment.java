@@ -3,6 +3,7 @@ package com.futureinapps.ledawateradmin.fragments;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.futureinapps.ledawateradmin.R;
+import com.futureinapps.ledawateradmin.activities.MainActivity;
 import com.futureinapps.ledawateradmin.adapters.NewsAdapter;
 import com.melnykov.fab.FloatingActionButton;
 
@@ -33,7 +35,6 @@ public class NewsFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_news, container, false);
-//        getToolbar().setTitle("Администратор");
         ButterKnife.bind(this, v);
 
         adapter = new NewsAdapter(getActivity());
@@ -59,17 +60,13 @@ public class NewsFragment extends BaseFragment {
     @OnClick(R.id.fab)
     void onFabButtonClick(){
         NewsCreatingFragment frag = new NewsCreatingFragment();
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container2, frag)
-                .addToBackStack(null)
-                .commit();
+        MainActivity.changeFragment(frag, false, (AppCompatActivity) getActivity());
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(resultCode== Activity.RESULT_OK){
-            adapter = new NewsAdapter(getActivity());
-            lv.setAdapter(adapter);
+            MainActivity.changeFragment(new NewsFragment(), false, (AppCompatActivity) getActivity());
         }
     }
 }

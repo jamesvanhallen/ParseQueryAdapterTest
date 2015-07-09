@@ -2,6 +2,7 @@ package com.futureinapps.ledawateradmin.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.futureinapps.ledawateradmin.R;
+import com.futureinapps.ledawateradmin.activities.MainActivity;
 import com.futureinapps.ledawateradmin.adapters.OrdersAdapter;
 
 import butterknife.Bind;
@@ -38,10 +40,7 @@ public class OrdersFragment extends BaseFragment {
                 Bundle b = new Bundle();
                 b.putParcelable("order", adapter.getItem(position));
                 frag.setArguments(b);
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container2, frag)
-                        .addToBackStack(null)
-                        .commit();
+                MainActivity.changeFragment(frag, false, (AppCompatActivity) getActivity());
             }
         });
         return v;
